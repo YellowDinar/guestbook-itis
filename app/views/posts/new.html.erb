@@ -1,0 +1,15 @@
+<h2 align="center">New message</h2>
+
+<%= form_for :post, url: posts_path do |f| %>
+ 
+  <p align="center">
+    <%= f.text_area :text %>
+  </p>
+ 
+  <p align="center">
+    <%= f.submit 'Send' %>
+  </p>
+<% end %>
+<p align="center">
+    <%= link_to 'Back', posts_path %>
+</p>

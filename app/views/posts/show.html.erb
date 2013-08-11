@@ -1,0 +1,13 @@
+<p>
+  <h3>User:</h3>
+  <%= @post.title %>
+</p>
+ 
+<p>
+  <h3>Message:</h3>
+  <%= @post.text %>
+</p>
+<p>
+<%= link_to 'Back', posts_path %>
+<%= link_to 'Destroy', edit_post_path(@post) %>
+</p>

@@ -1,0 +1,23 @@
+<h1 align="center">GuestBook</h1><br>
+
+<% if user_signed_in? %>
+    <h3><%= link_to 'Send a message', new_post_path %></h3>
+    <h3><%= link_to 'Exit', destroy_user_session_path, method: :delete %></h3>
+<% else %>
+    <h3><%= link_to 'Registration' , new_user_registration_path %>
+    <h3><%= link_to 'Authorization' , user_session_path %></h3>
+    <h3><%= link_to 'Send a message', new_post_path %></h3>
+<% end %>
+
+<% @post.each do |post| %>
+    <table style="background-color: grey ; word-wrap: break-word;" align="center">
+        <tr><td><h3><%= post.title %></h3></td></tr>
+        <tr><td><%= post.text %></td></tr>
+        <% user_signed_in? && if post.title == current_user.email %>
+            <tr><td><%= link_to 'Edit', edit_post_path(post) %></td><td><%= link_to 'Destroy', post_path(post), method: :delete, data: { confirm: 'Are you sure?' } %></td></tr>
+        <% end %>
+    </table>
+    <br><br>
+<% end %>
+
+<%= will_paginate @posts %>
