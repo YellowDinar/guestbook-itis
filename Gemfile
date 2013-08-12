@@ -5,12 +5,13 @@ gem 'rails', '4.0.0'
 gem 'will_paginate', '~> 3.0'
 gem 'devise'
 # Use sqlite3 as the database for Active Record
-gem "heroku"
-group :production do
-gem 'pg'
+gem 'heroku'
+group :development do
+  gem 'sqlite3'
 end
-group :development, :test do
-gem 'sqlite3'
+
+group :production do
+  gem 'pg'
 end
 
 # Use SCSS for stylesheets
