@@ -2,7 +2,7 @@
 
 <% if user_signed_in? %>
     <h3><%= link_to 'Send a message', new_post_path %></h3>
-    <h3><%= link_to 'Exit', destroy_user_session_path, method: :delete %></h3>
+    <h3><%= link_to 'Exit', destroy_user_session_path, method: :sign_out %></h3>
 <% else %>
     <h3><%= link_to 'Registration' , new_user_registration_path %>
     <h3><%= link_to 'Authorization' , user_session_path %></h3>
